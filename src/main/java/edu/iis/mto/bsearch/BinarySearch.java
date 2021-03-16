@@ -3,6 +3,7 @@
  */
 package edu.iis.mto.bsearch;
 
+import arrays.Array;
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
@@ -28,7 +29,11 @@ public class BinarySearch {
         if (seq.length == 0) {
             throw new IllegalArgumentException();
         }
-        
+
+        if (!Array.isSorted(seq) || Array.isDuplicated(seq)) {
+            throw new IllegalArgumentException();
+        }
+
         int start = 0;
         int end = seq.length - 1;
         int center;
